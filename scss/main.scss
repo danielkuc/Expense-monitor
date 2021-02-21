@@ -111,16 +111,15 @@ input {
     padding: 10px;
     margin: 10px 0;
 
-    & .minus {
-      border-right: 5px solid $minus-red;
-    }
-
-    & .plus {
+    &.plus {
       border-right: 5px solid $plus-green;
     }
   }
 
-  & li:hover .delete-btn {
+  & .minus {
+    border-right: 5px solid $minus-red;
+  }
+  &li:hover .delete-btn {
     opacity: 1;
   }
 }
