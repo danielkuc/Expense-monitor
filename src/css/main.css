@@ -26,7 +26,16 @@ body {
 
 .container {
   margin: 30px auto;
-  width: 350;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.form-container {
+  margin-left: 100px;
 }
 
 h1 {

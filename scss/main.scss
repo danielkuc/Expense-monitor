@@ -13,7 +13,13 @@ body {
 
 .container {
   margin: 30px auto;
-  width: 350;
+  // width: 350;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form-container {
+  margin-left: 100px;
 }
 
 h1 {
