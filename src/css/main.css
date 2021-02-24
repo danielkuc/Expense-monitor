@@ -5,6 +5,11 @@
 }
 
 body {
+  background-color: black;
+}
+
+.container-outer {
+  width: 50vw;
   background-color: #f7f7f7;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,8 +25,9 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 100vh;
-  margin: 0;
+  margin: auto;
   font-family: 'Lato', 'sans-serif';
+  border-radius: 5px;
 }
 
 .container {
@@ -29,9 +35,6 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
 }
 
 .form-container {
@@ -55,6 +58,7 @@ h4 {
 }
 
 .inc-exp-container {
+  min-width: 16vw;
   background-color: #fff;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -156,7 +160,7 @@ input {
   border-right: 5px solid #c0392b;
 }
 
-.listli:hover .delete-btn {
+.list li:hover .delete-btn {
   opacity: 1;
 }
 
@@ -178,5 +182,10 @@ input {
   opacity: 0;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 /*# sourceMappingURL=main.css.map */

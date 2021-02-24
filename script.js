@@ -2,7 +2,7 @@
 // const moneyPlus = document.querySelector('#money-plus');
 // const moneyMinus = document.querySelector('#money-minus');
 // const list = document.querySelector('#list');
-const form = document.querySelector('#form');
+// const form = document.querySelector('#form');
 // const text = document.querySelector('#text');
 // const amount = document.querySelector('#amount');
 
@@ -19,10 +19,32 @@ let transactions = dummyTransactions;
 const addTransaction = e => {
   e.preventDefault();
 
-  if($('#text').val().trim() === '' || $('#amount').val().trim()) {
+  if($('#text').val().trim() === '' || $('#amount').val().trim() === '') {
     alert('Please add valid input')
+  } else {
+    const transaction = {
+      id: incrementId(dummyTransactions),
+      text: $('#text').val(),
+      amount:+$('#amount').val()
+    };
+
+    transactions.push(transaction);
+    addTransactionDOM(transaction);
+    updateValues();
+
+    $('#text').val("");
+    $('#amount').val("");
   }
 
+};
+
+const deleteTransaction = id => {
+  transactions = transactions.filter(transaction => transaction.id !== id)
+  init();
+};
+
+const incrementId = (array) => {
+  return array[array.length-1].id+=1;
 };
 
 // add transactions to dom
@@ -33,7 +55,7 @@ const addTransactionDOM = (transaction) => {
   item.classList.add(transaction.amount < 0 ? "minus" : "plus");
 
   item.innerHTML = `
-    ${transaction.text} <span>${sign}${Math.abs(transaction.amount)}</span> <button class="delete-btn">x</button>
+    ${transaction.text} <span>${sign}${Math.abs(transaction.amount)}</span> <button onclick="deleteTransaction(${transaction.id})" class="delete-btn" >x</button>
   `;
 
   $('#list').append(item);
@@ -71,6 +93,5 @@ const init = () => {
 
 init();
 
-// form.addEventListener('submit', addTransaction());
 
 $('#form').submit(addTransaction);

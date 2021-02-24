@@ -7,15 +7,20 @@
 }
 
 body {
+  background-color: black;
+}
+
+.container-outer {
+  width: 50vw;
+  // min-width: 80vw;
   background-color: #f7f7f7;
   @include center();
+  border-radius: 5px;
 }
 
 .container {
   margin: 30px auto;
-  // width: 350;
   display: flex;
-  justify-content: space-evenly;
 }
 
 .form-container {
@@ -39,6 +44,7 @@ h4 {
 }
 
 .inc-exp-container {
+  min-width: 16vw;
   background-color: #fff;
   box-shadow: $box-shadow;
   padding: 20px;
@@ -125,7 +131,7 @@ input {
   & .minus {
     border-right: 5px solid $minus-red;
   }
-  &li:hover .delete-btn {
+  & li:hover .delete-btn {
     opacity: 1;
   }
 }
@@ -145,4 +151,9 @@ input {
   transform: translate(-120%, -50%);
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
