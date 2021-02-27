@@ -1,19 +1,6 @@
-// const balance = document.querySelector('#balance');
-// const moneyPlus = document.querySelector('#money-plus');
-// const moneyMinus = document.querySelector('#money-minus');
-// const list = document.querySelector('#list');
-// const form = document.querySelector('#form');
-// const text = document.querySelector('#text');
-// const amount = document.querySelector('#amount');
+const checkLocalStorage = JSON.parse(localStorage.getItem('transactions'));
 
-const dummyTransactions = [
-  {id:1, text: 'Flower', amount:-20},
-  {id:2, text: 'Salary', amount: 300},
-  {id:3, text: 'Book', amount:-10},
-  {id:4, text: 'Camera', amount: 150}
-];
-
-let transactions = dummyTransactions;
+let transactions = localStorage.getItem('transactions') !== null ? checkLocalStorage : [];
 // state
 
 const addTransaction = e => {
@@ -23,7 +10,7 @@ const addTransaction = e => {
     alert('Please add valid input')
   } else {
     const transaction = {
-      id: incrementId(dummyTransactions),
+      id: Math.floor(Math.random() * 1000),
       text: $('#text').val(),
       amount:+$('#amount').val()
     };
@@ -31,6 +18,7 @@ const addTransaction = e => {
     transactions.push(transaction);
     addTransactionDOM(transaction);
     updateValues();
+    updateLocalStorage();
 
     $('#text').val("");
     $('#amount').val("");
@@ -40,11 +28,8 @@ const addTransaction = e => {
 
 const deleteTransaction = id => {
   transactions = transactions.filter(transaction => transaction.id !== id)
+  updateLocalStorage();
   init();
-};
-
-const incrementId = (array) => {
-  return array[array.length-1].id+=1;
 };
 
 // add transactions to dom
@@ -79,6 +64,11 @@ const updateValues = () => {
     .reduce((acc, item) => acc += item, 0)
     .toFixed(2);
   $('#money-minus').html(`£${expense}`);
+};
+
+// update local storage
+const updateLocalStorage = () => {
+  localStorage.setItem('transactions', JSON.stringify(transactions));
 };
 
 

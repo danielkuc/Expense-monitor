@@ -11,8 +11,8 @@ body {
 }
 
 .container-outer {
-  width: 50vw;
-  // min-width: 80vw;
+  width: 40rem;
+  min-width: 40rem;
   background-color: #f7f7f7;
   @include center();
   border-radius: 5px;

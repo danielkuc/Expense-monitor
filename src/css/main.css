@@ -9,7 +9,8 @@ body {
 }
 
 .container-outer {
-  width: 50vw;
+  width: 40rem;
+  min-width: 40rem;
   background-color: #f7f7f7;
   display: -webkit-box;
   display: -ms-flexbox;
